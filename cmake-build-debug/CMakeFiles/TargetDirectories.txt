@@ -1,0 +1,3 @@
+C:/Users/Thomas/CLionProjects/SYSC4001_A1/cmake-build-debug/CMakeFiles/SYSC4001_A1.dir
+C:/Users/Thomas/CLionProjects/SYSC4001_A1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Thomas/CLionProjects/SYSC4001_A1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
