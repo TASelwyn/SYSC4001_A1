@@ -4,8 +4,11 @@
  * @author Sasisekhar Govind
  *
  */
-
 #include "interrupts.hpp"
+
+// SYSC 4001 - Assignment 1
+// Thomas Selwyn (101183163)
+// Rayyan Kashif (102474266)
 
 int main(int argc, char** argv) {
 
