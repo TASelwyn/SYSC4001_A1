@@ -23,7 +23,12 @@ int main(int argc, char** argv) {
 
     /******************ADD YOUR VARIABLES HERE*************************/
 
+    // PLAY WITH
+    int context_save_time = 10;
+    int isr_activity_time = 40;
 
+    // Required
+    int total_time = 0;
 
     /******************************************************************/
 
@@ -32,8 +37,42 @@ int main(int argc, char** argv) {
         auto [activity, duration_intr] = parse_trace(trace);
 
         /******************ADD YOUR SIMULATION CODE HERE*************************/
+        // activity = CPU/SYS CALL/ENDIO
+        // duration_intr = DURATION (ms) or IO DEV#
+        // vectors[DEV] returns str of ISR address
 
+        if (activity == "CPU") {
+            execution.append(std::to_string(total_time) + ", " + std::to_string(duration_intr) + ", cpu" + "\n");
+            total_time += duration_intr; // Add cpu burn to time
 
+        } else if (activity == "SYSCALL" || activity == "END_IO") {
+            //execution.append("SYSCALL " + std::to_string(duration_intr));
+
+            if (activity == "END_IO") {
+                int delay_time = delays[duration_intr];
+                execution += std::to_string(total_time) + ", " + std::to_string(delay_time) + ", end of I/O " + std::to_string(duration_intr) + ": interrupt\n";
+                total_time += delay_time;
+            }
+
+            // intr_boilerplate does kernel/save context/find vector/load into PC
+            std::pair<std::string, int> interruptAnalysis = intr_boilerplate(total_time, duration_intr, context_save_time, vectors);
+            execution.append(interruptAnalysis.first); // add boilerplate output to output
+            total_time = interruptAnalysis.second;
+
+            // exec ISR body
+            execution += std::to_string(total_time) + ", " + std::to_string(isr_activity_time) + ", execute interrupt service routine\n";
+            total_time += isr_activity_time;
+
+            // IRET
+            execution += std::to_string(total_time) + ", " + std::to_string(1) + ", execute interrupt return\n";
+            total_time += 1;
+
+        } else {
+            // UNSUPPORTED TRACE STATEMENT
+            execution.append("Unsupported statement\n");
+        }
+
+        //execution.append("----------------------------------------------------------\n");
 
         /************************************************************************/
 
