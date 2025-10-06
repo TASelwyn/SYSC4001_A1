@@ -1,0 +1,46 @@
+0, 95, cpu
+95, 1, switch to kernel mode
+96, 20, context saved
+116, 1, find vector 6 in memory position 0x000C
+117, 1, load address 0X0639 into the PC
+118, 110, execute interrupt service routine
+228, 1, execute interrupt return
+229, 26, cpu
+255, 265, end of I/O 6: interrupt
+520, 1, switch to kernel mode
+521, 20, context saved
+541, 1, find vector 6 in memory position 0x000C
+542, 1, load address 0X0639 into the PC
+543, 110, execute interrupt service routine
+653, 1, execute interrupt return
+654, 72, cpu
+726, 1, switch to kernel mode
+727, 20, context saved
+747, 1, find vector 17 in memory position 0x0022
+748, 1, load address 0X05B3 into the PC
+749, 110, execute interrupt service routine
+859, 1, execute interrupt return
+860, 50, cpu
+910, 235, end of I/O 17: interrupt
+1145, 1, switch to kernel mode
+1146, 20, context saved
+1166, 1, find vector 17 in memory position 0x0022
+1167, 1, load address 0X05B3 into the PC
+1168, 110, execute interrupt service routine
+1278, 1, execute interrupt return
+1279, 88, cpu
+1367, 1, switch to kernel mode
+1368, 20, context saved
+1388, 1, find vector 14 in memory position 0x001C
+1389, 1, load address 0X0165 into the PC
+1390, 110, execute interrupt service routine
+1500, 1, execute interrupt return
+1501, 31, cpu
+1532, 456, end of I/O 14: interrupt
+1988, 1, switch to kernel mode
+1989, 20, context saved
+2009, 1, find vector 14 in memory position 0x001C
+2010, 1, load address 0X0165 into the PC
+2011, 110, execute interrupt service routine
+2121, 1, execute interrupt return
+2122, 52, cpu
