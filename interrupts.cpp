@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
     if (argc == 6) {
         context_save_time = std::stoi(argv[4]);
         isr_activity_time = std::stoi(argv[5]);
-        std::cout << "Simulation arguments found. Using instead of default 10/40. " << std::endl;
+        std::cout << "Simulation arguments found. Using the following values instead of the default. " << std::endl;
         std::cout << "Context Save Time: " << std::to_string(context_save_time) << std::endl;
         std::cout << "ISR Activity Time: " << std::to_string(isr_activity_time) << std::endl;
     }

@@ -120,7 +120,10 @@ std::pair<std::string, int> intr_boilerplate(int current_time, int intr_num, int
                     + " in memory position " + vector_address + "\n";
     current_time++;
 
-    execution += std::to_string(current_time) + ", " + std::to_string(1) + ", load address " + vectors.at(intr_num) + " into the PC\n";
+    std::string memAddress = vectors.at(intr_num);
+    memAddress.pop_back();
+
+    execution += std::to_string(current_time) + ", " + std::to_string(1) + ", load address " + memAddress + " into the PC\n";
     current_time++;
 
     return std::make_pair(execution, current_time);
